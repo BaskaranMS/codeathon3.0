@@ -56,8 +56,8 @@ class _OrdersScreenState extends State<OrdersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Orders", style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600)),
-        centerTitle: true,
+        backgroundColor: Colors.green.shade700,
+        title: Text("Orders", style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white)),
       ),
       body: orders.isEmpty
           ? Center(child: CircularProgressIndicator())

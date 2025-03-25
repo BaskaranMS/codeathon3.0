@@ -44,7 +44,9 @@ class _NegotiationPageState extends State<NegotiationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Negotiation Details", style: GoogleFonts.poppins()),
+        backgroundColor: Colors.green.shade700,
+        title: Text("Negotiation Details", style: GoogleFonts.poppins(color: Colors.white)),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: negotiationData == null
           ? Center(
