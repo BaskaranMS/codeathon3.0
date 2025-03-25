@@ -75,9 +75,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets:
-  - assets/
-  - assets/loading.json
+  assets:
+   - assets/
+   - assets/loading.json
+   - assets/splash.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -104,3 +105,10 @@ assets:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  color: "#000000" # Set the background color (change as needed)
+  image: assets/splash.jpg # Your logo image
+  android_12:
+    color: "#000000"
+    image: assets/splash.jpg
