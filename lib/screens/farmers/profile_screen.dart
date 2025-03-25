@@ -54,7 +54,7 @@ class _FarmerPageState extends State<FarmerPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Edit Profile", style: GoogleFonts.poppins()),
+          title: Text("Edit Profile", style: TextStyle(color: Colors.white),),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -107,7 +107,7 @@ class _FarmerPageState extends State<FarmerPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Farmer Profile", style: GoogleFonts.poppins()),
+        title: Text("Farmer Profile", style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green.shade700,
         actions: [
           IconButton(
@@ -118,43 +118,47 @@ class _FarmerPageState extends State<FarmerPage> {
       ),
       body: farmerData == null
           ? Center(
-              child: Lottie.asset('assets/loading.json', width: 150),
-            )
+        // child: Lottie.asset('assets/loading.json', width: 150),
+        child: CircularProgressIndicator(),
+      )
           : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: CachedNetworkImage(
-                        imageUrl: farmerData!["profileImage"] ?? "",
-                        width: 120,
-                        height: 120,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Shimmer.fromColors(
-                          baseColor: Colors.grey.shade300,
-                          highlightColor: Colors.grey.shade100,
-                          child: CircleAvatar(radius: 60),
-                        ),
-                        errorWidget: (context, url, error) =>
-                            Icon(Icons.error, size: 80),
-                      ),
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: CachedNetworkImage(
+                    imageUrl: farmerData!["profileImage"] ?? "",
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: Colors.grey.shade300,
+                      highlightColor: Colors.grey.shade100,
+                      child: CircleAvatar(radius: 60),
                     ),
+                    errorWidget: (context, url, error) =>
+                        Icon(Icons.error, size: 80),
                   ),
-                  SizedBox(height: 20),
-                  _infoTile("👤 Name", farmerData!["name"]),
-                  _infoTile("📧 Email", farmerData!["email"]),
-                  _infoTile("📞 Phone", farmerData!["phone"]),
-                  _infoTile("🏡 Farm", farmerData!["farmName"]),
-                  _infoTile("📍 Location", farmerData!["location"]),
-                  _infoTile("🛒 Products", farmerData!["products"].join(", ")),
-                  _infoTile("📦 Orders", farmerData!["orders"].join(", ")),
-                  _infoTile("📅 Joined", farmerData!["createdAt"]),
-                ],
+                ),
               ),
-            ),
+              SizedBox(height: 20),
+              _infoTile("👤 Name", farmerData!["name"]),
+              _infoTile("📧 Email", farmerData!["email"]),
+              _infoTile("📞 Phone", farmerData!["phone"]),
+              _infoTile("🏡 Farm", farmerData!["farmName"]),
+              _infoTile("📍 Location", farmerData!["location"]),
+              _infoTile("🛒 Products", farmerData!["products"].join(", ")),
+              _infoTile("📦 Orders", farmerData!["orders"].join(", ")),
+              _infoTile("📅 Joined", farmerData!["createdAt"]),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -165,8 +169,17 @@ class _FarmerPageState extends State<FarmerPage> {
       elevation: 2,
       child: ListTile(
         leading: Icon(Icons.info, color: Colors.green.shade700),
-        title: Text(title, style: GoogleFonts.poppins(fontWeight: FontWeight.bold)),
-        subtitle: Text(value, style: GoogleFonts.poppins()),
+        title: Text(
+          title,
+          style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          value,
+          style: GoogleFonts.poppins(),
+          softWrap: true,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2, // Avoids overflow
+        ),
       ),
     );
   }

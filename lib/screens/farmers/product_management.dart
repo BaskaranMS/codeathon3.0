@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:untitled1/screens/farmers/add_product.dart';
 
 class ProductManagementPage extends StatefulWidget {
   @override
@@ -50,7 +51,8 @@ class _ProductManagementPageState extends State<ProductManagementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Product Management', style: GoogleFonts.poppins()),
+        title: Text('Product Management', style: GoogleFonts.poppins(color: Colors.white)),
+        backgroundColor: Colors.green.shade700,
       ),
       body: products.isEmpty
           ? Center(
@@ -96,9 +98,12 @@ class _ProductManagementPageState extends State<ProductManagementPage> {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+
           // Handle product addition
-        },
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AddProductPage()));
+          },
+
         child: Icon(Icons.add),
       ),
     );

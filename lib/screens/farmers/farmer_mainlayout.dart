@@ -16,11 +16,11 @@ class _FarmerMainLayoutState extends State<FarmerMainLayout> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const FarmerDashboard(),
-    const ProductManagement(),
-    const OrdersScreen(),
-    const ChatScreen(),
-    const ProfileScreen(),
+     FarmerDashboard(),
+     ProductManagementPage(),
+     OrdersScreen(),
+     ChatScreen(),
+     FarmerPage(),
   ];
 
   void _onItemTapped(int index) {

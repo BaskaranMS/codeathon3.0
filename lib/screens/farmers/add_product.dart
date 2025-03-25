@@ -41,72 +41,119 @@ class _AddProductPageState extends State<AddProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Product', style: GoogleFonts.poppins()),
-        backgroundColor: Colors.green,
+        title: Text('Add Product', style: GoogleFonts.poppins(color: Colors.white)),
+        backgroundColor: Colors.green.shade700,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
-            children: [
-              TextFormField(
-                controller: nameController,
-                decoration: InputDecoration(labelText: 'Product Name'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a product name';
-                  }
-                  return null;
-                },
+          children: [
+            TextFormField(
+              controller: nameController,
+              decoration: InputDecoration(
+                labelText: 'Product Name',
+                prefixIcon: Icon(Icons.shopping_basket, color: Colors.green.shade700),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white,
               ),
-              TextFormField(
-                controller: descriptionController,
-                decoration: InputDecoration(labelText: 'Description'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a product name';
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 12),
+
+            TextFormField(
+              controller: descriptionController,
+              decoration: InputDecoration(
+                labelText: 'Description',
+                prefixIcon: Icon(Icons.description, color: Colors.green.shade700),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white,
               ),
-              TextFormField(
-                controller: priceController,
-                decoration: InputDecoration(labelText: 'Price'),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter price';
-                  }
-                  return null;
-                },
+            ),
+            SizedBox(height: 12),
+
+            TextFormField(
+              controller: priceController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Price',
+                prefixIcon: Icon(Icons.attach_money, color: Colors.green.shade700),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white,
               ),
-              TextFormField(
-                controller: quantityController,
-                decoration: InputDecoration(labelText: 'Quantity'),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter quantity';
-                  }
-                  return null;
-                },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter price';
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 12),
+
+            TextFormField(
+              controller: quantityController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Quantity',
+                prefixIcon: Icon(Icons.numbers, color: Colors.green.shade700),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white,
               ),
-              TextFormField(
-                controller: categoryController,
-                decoration: InputDecoration(labelText: 'Category'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a category';
-                  }
-                  return null;
-                },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter quantity';
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 12),
+
+            TextFormField(
+              controller: categoryController,
+              decoration: InputDecoration(
+                labelText: 'Category',
+                prefixIcon: Icon(Icons.category, color: Colors.green.shade700),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white,
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    addProduct();
-                  }
-                },
-                child: Text('Add Product', style: GoogleFonts.poppins()),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a category';
+                }
+                return null;
+              },
+            ),
+            SizedBox(height: 20),
+
+            ElevatedButton.icon(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  addProduct();
+                }
+              },
+              icon: Icon(Icons.add, color: Colors.white),
+              label: Text('Add Product', style: GoogleFonts.poppins(fontSize: 16, color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green.shade700,
+                padding: EdgeInsets.symmetric(vertical: 14, horizontal: 30),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
+
         ),
       ),
     );
