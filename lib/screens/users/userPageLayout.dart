@@ -15,7 +15,7 @@ class _UserPageLayoutState extends State<UserPageLayout> {
 
   final List<Widget> _pages = [
     UserHomeScreen(),
-    O,
+    OrderSummaryScreen(),
     ChatScreen(),
     ProfileScreen(),
   ];
