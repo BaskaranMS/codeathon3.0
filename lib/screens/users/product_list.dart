@@ -58,52 +58,57 @@ class _ProductListPageState extends State<ProductListPage> {
       appBar: AppBar(
         title: Text(
           'Products',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+          style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green.shade700,
       ),
       body: products.isEmpty
-          ? Center(child: Lottie.asset('assets/loading.json'))
+          ? Center(child: Lottie.asset('assets/loading.json', width: 150))
           : ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
                 var product = products[index];
                 return FadeInUp(
                   duration: Duration(milliseconds: 500),
-                  child: Card(
-                    margin: EdgeInsets.all(10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: ListTile(
-                      leading: CachedNetworkImage(
-                        imageUrl: product['images'][0] ?? '',
-                        placeholder: (context, url) => Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.white,
-                          child: Container(
-                            width: 50,
-                            height: 50,
-                            color: Colors.white,
+                  child: GestureDetector(
+                    onTap: (){
+                      // Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDe))
+                    },
+                    child: Card(
+                      margin: EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: ListTile(
+                        leading: CachedNetworkImage(
+                          imageUrl: product['images'][0] ?? '',
+                          placeholder: (context, url) => Shimmer.fromColors(
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.white,
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              color: Colors.white,
+                            ),
+                          ),
+                          errorWidget: (context, url, error) => Icon(Icons.image),
+                        ),
+                        title: Text(
+                          product['name'] ?? 'Unknown',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.image),
-                      ),
-                      title: Text(
-                        product['name'] ?? 'Unknown',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
+                        subtitle: Text(
+                          '${product['category']} - ₹${product['price']}',
+                          style: GoogleFonts.poppins(),
                         ),
-                      ),
-                      subtitle: Text(
-                        '${product['category']} - ₹${product['price']}',
-                        style: GoogleFonts.poppins(),
-                      ),
-                      trailing: Text(
-                        '${product['quantity']} left',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.red,
+                        trailing: Text(
+                          '${product['quantity']} left',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red,
+                          ),
                         ),
                       ),
                     ),

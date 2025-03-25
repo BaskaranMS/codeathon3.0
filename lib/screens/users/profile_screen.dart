@@ -49,8 +49,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Farmer Profile", style: GoogleFonts.poppins()),
-        centerTitle: true,
+        title: Text("Farmer Profile", style: GoogleFonts.poppins(color: Colors.white)),
+        backgroundColor: Colors.green.shade700,
       ),
       body: farmerData == null
           ? Center(child: Lottie.asset('assets/loading.json', width: 100))

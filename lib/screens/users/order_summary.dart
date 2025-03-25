@@ -53,7 +53,8 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order Summary"),
+        title: Text("Order Summary", style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.green.shade700,
       ),
       body: orderDetails == null
           ? Center(
