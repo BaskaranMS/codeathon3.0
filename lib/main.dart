@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:untitled1/auth/login.dart';
 import 'package:untitled1/screens/farmers/farmer_dashboard.dart';
 import 'package:untitled1/screens/farmers/farmer_mainlayout.dart';
+import 'package:untitled1/screens/users/userPageLayout.dart';
 import 'package:untitled1/screens/users/user_home_screen.dart';
 
 void main() {
@@ -52,12 +53,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
       if (token != null && userType != null) {
         if (userType == "farmer") {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const FarmerMainLayout()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => UserPageLayout()));
         } else {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const FarmerMainLayout()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => UserPageLayout()));
         }
       } else {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const FarmerMainLayout()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => UserPageLayout()));
       }
     } catch (e) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const FarmerMainLayout()));

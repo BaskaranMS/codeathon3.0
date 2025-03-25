@@ -32,34 +32,34 @@ class _HomeScreenState extends State<HomeScreen> {
           {
             "name": "John's Organic Farm",
             "location": "California, USA",
-            "profileImage": "https://via.placeholder.com/150",
+            "profileImage": "https://th.bing.com/th/id/OIP.m4-ME4p7aOSGw3Rb9iSh0QHaE7?w=286&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7",
             "products": [
               {
                 "name": "Fresh Apples",
                 "price": "\$3/kg",
-                "image": "https://via.placeholder.com/100"
+                "image": "https://th.bing.com/th/id/OIP.9OhrQ4D09NiQE6H0469qdAHaF1?rs=1&pid=ImgDetMain"
               },
               {
                 "name": "Organic Tomatoes",
                 "price": "\$2.5/kg",
-                "image": "https://via.placeholder.com/100"
+                "image": "https://th.bing.com/th/id/OIP.9OhrQ4D09NiQE6H0469qdAHaF1?rs=1&pid=ImgDetMain"
               }
             ]
           },
           {
             "name": "Green Valley Farm",
             "location": "Texas, USA",
-            "profileImage": "https://via.placeholder.com/150",
+            "profileImage": "https://th.bing.com/th/id/OIP.m4-ME4p7aOSGw3Rb9iSh0QHaE7?w=286&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7",
             "products": [
               {
                 "name": "Wheat",
                 "price": "\$1.5/kg",
-                "image": "https://via.placeholder.com/100"
+                "image": "https://th.bing.com/th/id/OIP.9OhrQ4D09NiQE6H0469qdAHaF1?rs=1&pid=ImgDetMain"
               },
               {
                 "name": "Rice",
                 "price": "\$2/kg",
-                "image": "https://via.placeholder.com/100"
+                "image": "https://th.bing.com/th/id/OIP.9OhrQ4D09NiQE6H0469qdAHaF1?rs=1&pid=ImgDetMain"
               }
             ]
           }
@@ -75,8 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "Farmers' Market", style: GoogleFonts.poppins(fontSize: 20)),
+            "Farmers' Market", style: GoogleFonts.poppins(fontSize: 20, color: Colors.white)),
         centerTitle: true,
+        backgroundColor: Colors.green.shade700,
       ),
       body: farmers.isEmpty
           ? Center(child: Lottie.asset("assets/loading.json", width: 150))

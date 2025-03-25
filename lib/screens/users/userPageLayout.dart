@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/users/user_home_screen.dart';
+import 'package:untitled1/screens/users/product_list.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'order_summary.dart';
@@ -14,8 +14,9 @@ class _UserPageLayoutState extends State<UserPageLayout> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    UserHomeScreen(),
-    OrderSummaryScreen(),
+    HomeScreen(),
+    ProductListPage(),
+    OrderSummaryPage(),
     ChatScreen(),
     ProfileScreen(),
   ];
@@ -39,6 +40,10 @@ class _UserPageLayoutState extends State<UserPageLayout> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.format_list_bulleted),
+            label: 'Products',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.receipt_long),
